@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+}
+
+
+.healthy {
+    color: #4CAF50;
+}
+
+.water-alert {
+    color: #2196F3;
+}
+
+.light-alert {
+    color: #FFC107;
+}
+
+.stress-alert {
+    color: #F44336;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#simulate-water {
+    background-color: #2196F3;
+}
+
+#simulate-water:hover {
+    background-color: #0b7dda;
+}
+
+#change-light {
+    background-color: #FFC107;
+    color: black;
+}
+
+#change-light:hover {
+    background-color: #e6b000;
+}
