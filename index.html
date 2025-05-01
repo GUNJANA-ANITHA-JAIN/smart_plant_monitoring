@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Twin: Smart Plant Monitor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+        #controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <h2>Plant Status</h2>
+        <div id="status">Loading...</div>
+        <div>Moisture: <span id="moisture-value">--</span>%</div>
+        <div>Light: <span id="light-value">--</span> lux</div>
+        <div>Health: <span id="health-value">--</span></div>
+    </div>
+    <div id="controls">
+        <button id="simulate-water">Simulate Watering</button>
+        <button id="change-light">Change Light Conditions</button>
+    </div>
+    <!-- Three.js first -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+
+<!-- Then your scripts -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/dataGenerator.js"></script>
+<script src="./js/plantModel.js"></script>
+<script src="./js/main.js"></script> <!-- This should be LAST -->
+</body>
+</html>
