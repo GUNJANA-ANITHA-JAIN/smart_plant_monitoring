@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import RNG from './rng';
+import RNG from '../../rng';
 import { Branch } from './branch';
 import { Billboard, TreeType } from './enums';
-import TreeOptions from './options';
+import TreeOptions from '../../options';
 import { loadPreset } from './presets/index';
 import { getBarkTexture, getLeafTexture } from './textures';
 

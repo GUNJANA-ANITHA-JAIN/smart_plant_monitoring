@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
 import { Pane } from 'tweakpane';
-import { BarkType, Billboard, LeafType, TreePreset, Tree, TreeType } from '@dgreenheck/ez-tree';
+import { BarkType, Billboard, LeafType, TreePreset, Tree, TreeType } from '@plant_dt';
 import { Environment } from './environment';
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 import { version } from '../../package.json';
@@ -72,13 +72,7 @@ export function setupUI(tree, environment, renderer, scene, camera, controls, in
   childrenFolder.addBinding(tree.options.branch.children, '0', { min: 0, max: 100, step: 1 });
 
 
-  //const gnarlinessFolder = branchFolder.addFolder({ title: 'Gnarliness', expanded: false });
-  //gnarlinessFolder.addBinding(tree.options.branch.gnarliness, '0', { min: -0.5, max: 0.5 });
-
-
-  //const forceFolder = branchFolder.addFolder({ title: 'Growth Direction', expanded: false });
-  //forceFolder.addBinding(tree.options.branch.force.direction, 'x', { min: -1, max: 1 });
-
+  
 
   const lengthFolder = branchFolder.addFolder({ title: 'Length', expanded: false });
   lengthFolder.addBinding(tree.options.branch.length, '0', { min: 0.1, max: 100 });
@@ -86,85 +80,21 @@ export function setupUI(tree, environment, renderer, scene, camera, controls, in
 
   const branchRadiusFolder = branchFolder.addFolder({ title: 'Radius', expanded: false });
   branchRadiusFolder.addBinding(tree.options.branch.radius, '0', { min: 0.1, max: 5 });
-  //branchRadiusFolder.addBinding(tree.options.branch.radius, '1', { min: 0.1, max: 5 });
-  //branchRadiusFolder.addBinding(tree.options.branch.radius, '2', { min: 0.1, max: 5 });
-  //branchRadiusFolder.addBinding(tree.options.branch.radius, '3', { min: 0.1, max: 5 });
-
-  //const sectionsFolder = branchFolder.addFolder({ title: 'Sections', expanded: false });
-  //sectionsFolder.addBinding(tree.options.branch.sections, '0', { min: 1, max: 20, step: 1 });
-  //sectionsFolder.addBinding(tree.options.branch.sections, '1', { min: 1, max: 20, step: 1 });
-  //sectionsFolder.addBinding(tree.options.branch.sections, '2', { min: 1, max: 20, step: 1 });
-  //sectionsFolder.addBinding(tree.options.branch.sections, '3', { min: 1, max: 20, step: 1 });
-
-  //const segmentsFolder = branchFolder.addFolder({ title: 'Segments', expanded: false });
-  //segmentsFolder.addBinding(tree.options.branch.segments, '0', { min: 3, max: 16, step: 1 });
-  //segmentsFolder.addBinding(tree.options.branch.segments, '1', { min: 3, max: 16, step: 1 });
-  //segmentsFolder.addBinding(tree.options.branch.segments, '2', { min: 3, max: 16, step: 1 });
-  //segmentsFolder.addBinding(tree.options.branch.segments, '3', { min: 3, max: 16, step: 1 });
-
-  //const branchStartFolder = branchFolder.addFolder({ title: 'Start', expanded: false });
-  //branchStartFolder.addBinding(tree.options.branch.start, '1', { min: 0, max: 1 });
-  //branchStartFolder.addBinding(tree.options.branch.start, '2', { min: 0, max: 1 });
-  //branchStartFolder.addBinding(tree.options.branch.start, '3', { min: 0, max: 1 });
-
-  //const taperFolder = branchFolder.addFolder({ title: 'Taper', expanded: false });
-  //taperFolder.addBinding(tree.options.branch.taper, '0', { min: 0, max: 1 });
-  //taperFolder.addBinding(tree.options.branch.taper, '1', { min: 0, max: 1 });
-  //taperFolder.addBinding(tree.options.branch.taper, '2', { min: 0, max: 1 });
-  //taperFolder.addBinding(tree.options.branch.taper, '3', { min: 0, max: 1 });
-
-  //const twistFolder = branchFolder.addFolder({ title: 'Twist', expanded: false });
-  //twistFolder.addBinding(tree.options.branch.twist, '0', { min: -0.5, max: 0.5 });
-  //twistFolder.addBinding(tree.options.branch.twist, '1', { min: -0.5, max: 0.5 });
-  //twistFolder.addBinding(tree.options.branch.twist, '2', { min: -0.5, max: 0.5 });
-  //twistFolder.addBinding(tree.options.branch.twist, '3', { min: -0.5, max: 0.5 });
+  
 
   const leavesFolder = treeFolder.addFolder({ title: 'Leaves', expanded: false });
-  //leavesFolder.addBinding(tree.options.leaves, 'type', { options: LeafType });
-  //leavesFolder.addBinding(tree.options.leaves, 'tint', { view: 'color' });
-  //leavesFolder.addBinding(tree.options.leaves, 'billboard', { options: Billboard });
-  //leavesFolder.addBinding(tree.options.leaves, 'angle', { min: 0, max: 100, step: 1 });
+  
   leavesFolder.addBinding(tree.options.leaves, 'count', { min: 0, max: 100, step: 1 });
-  //leavesFolder.addBinding(tree.options.leaves, 'start', { min: 0, max: 1 });
+
   leavesFolder.addBinding(tree.options.leaves, 'size', { min: 0, max: 10 });
-  //leavesFolder.addBinding(tree.options.leaves, 'sizeVariance', { min: 0, max: 1 });
-  //leavesFolder.addBinding(tree.options.leaves, 'alphaTest', { min: 0, max: 1 });
-
-  /** CAMERA  */
-  /**const cameraFolder = tab.pages[0].addFolder({ title: 'Camera', expanded: false });
-  cameraFolder.addBinding(controls, 'autoRotate');
-  cameraFolder.addBinding(controls, 'autoRotateSpeed', { min: 0, max: 2 }); */
-
+  
   /** ENVIRONMENT */
 
   const environmentFolder = tab.pages[0].addFolder({ title: 'Environment', expanded: false });
   environmentFolder.addBinding(environment.skybox, 'sunAzimuth', { label: 'sunAngle', min: 0, max: 360 });
   environmentFolder.addBinding(environment.grass, 'instanceCount', { label: 'grassCount', min: 0, max: 25000, step: 1 });
 
-  /** INFO  */
-
-  /**const infoFolder = tab.pages[0].addFolder({ title: 'Info', expanded: false });
-
-  infoFolder.addBinding(tree, 'vertexCount', {
-    label: 'vertices',
-    format: (v) => v.toFixed(0),
-    readonly: true,
-  });
-
-  infoFolder.addBinding(tree, 'triangleCount', {
-    label: 'triangles',
-    format: (v) => v.toFixed(0),
-    readonly: true,
-  });
-
-  infoFolder.addBlade({
-    view: 'text',
-    label: 'version',
-    parse: (v) => String(v),
-    value: version,
-  }); */
-
-  /** Export **/
+  
 
   tab.pages[1].addButton({ title: 'Save Preset' }).on('click', () => {
     const link = document.getElementById('downloadLink');
